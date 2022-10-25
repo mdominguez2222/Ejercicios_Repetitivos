@@ -8,9 +8,10 @@ import random
 
 numero = random.randint(1,100)
 num = 0
-contador = 0
+fallos = 0
 
-while (numero!=num):
+while (numero!=num and fallos<10):
+    fallos += 1
     num = int(input("Dime un número: \n"))
     if (numero<num):
         print("El número es menor")
@@ -18,4 +19,7 @@ while (numero!=num):
         print("El número es mayor")
 
 
-print ("Lo has adivinado")
+if (fallos==10):
+    print (f"Has llegado al límite de intentos. El número era {numero}")
+else:
+    print (f"Lo has adivinado. Has hecho {fallos} intentos")
