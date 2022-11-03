@@ -8,34 +8,63 @@ Cuando termine el programa dará las siguientes informaciones:
  -Cuantos números están fuera del intervalo.
  -He informa si hemos introducido algún número igual a los límites del intervalo'''
 
-inferior = 0
-superior = 0
-vNum = []
-num = 1
-suma = 0
-numerosfuera = 0
+#Función que devuelve una lista de números introducidos
 
-inferior = int(input("Dime el límite inferior: \n"))
-superior = int(input("Dime el límite superior: \n"))
+def pideNumeros():
+    vNum = []
+    num = 1
+    while (num!=0):
+        try:
+            contador = len(vNum)
+            num = int(input(f"Dime el número {len(vNum)}\n"))
+            if (num!=0):
+                vNum.append(num)
+        except:
+            print("Tienes que introducir números")
+    return vNum
 
-if (inferior>superior):
-    inferior = input("El límete inferior tiene que ser menor. Vuelve a introducirlo:\n")
-    superior = input("Vuelve a introducir el límite superior:\n")
 
-vLim = []
+def realizarCalculos(vDatos,limiteInferior,limiteSuperior):
+    suma = 0
+    fuera = 0
+    igualesAlimites = 0
+    vLimites = list(range(limiteInferior+1,limiteSuperior))
+    for i in vDatos:
+        if (i in vLimites):
+            suma += i
+        else:
+            fuera += 1
+        if (i==limiteInferior or i==limiteSuperior):
+            igualesAlimites +=1
 
-vLim.insert(0,inferior)
-vLim.append(superior)
-    
-while (num!=0):
-    num = int(input("Dime un número:\n"))
-    suma += num
-    vNum.append(num)
+    print("La suma total dentro de los límites es:", suma)
+    print(f"Has introducido {fuera} números fuera de los límites")
+    print(f"Has introducido {igualesAlimites} números iguales a los límites")
 
-vFuera = []
 
-if (num<inferior or num>superior):
-    vFuera.append(num)
 
-print("La suma de los números es", suma)
-print(f"Los números que están fuera del intervalo son {len(vFuera)}")
+#Pedir Límites Inferior y Superior
+
+limiteInferior = 1
+limiteSuperior = 0
+
+while limiteInferior > limiteSuperior:
+    try:
+        limiteInferior = int(input("Dime el límite inferior:\n"))
+        limiteSuperior = int(input("Dime el límite superior:\n"))
+        if limiteInferior > limiteSuperior:
+            print("Es obligatorio que el límite inferior sea menor que el superior:\n")
+            print("*********\n")
+    except:
+        print("Tienes que introducir números")
+
+
+#Pido los números
+
+vNum = pideNumeros()
+print (vNum)
+
+
+#Realizar cálculos
+
+realizarCalculos(vNum,limiteInferior,limiteSuperior)
