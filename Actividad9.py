@@ -2,31 +2,15 @@
 #Escribe un programa que dados dos números, uno real (base) y un entero positivo (exponente), saque por pantalla el resultado de la potencia. No se puede
 #utilizar el operador de potencia.
 
-exponente = 1
+base = int(float(input("Dime la base:\n")))
+exponente = -1
 
+while exponente<0:
+    exponente = (int)(input("Dime el exponente:\n"))
 
-def calculaPotencia(base,exponente):
-    return base^exponente
+potencia = 1
+for i in range(1,exponente+1):
+    potencia *= base
 
-
-num = int(input("¿Cuántas veces quieres calcular una potencia?\n"))
-
-
-while (exponente>0):
-    try:
-        for i in range(0,num):
-            base = int(input("Dime la base:\n"))
-            exponente = int(input("Dime el exponente\n"))   
-
-            print (f"La potencia es {calculaPotencia(base,exponente)}")
-            print("\n")
-            print ("***********")
-
-        if (exponente<0):
-            print("El exponente tiene que ser positivo\n")
-
-    except:
-        print("Tienes que introducir números")
-        
-
+print(f"{base}^{exponente}= {potencia}")
     
