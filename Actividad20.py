@@ -5,7 +5,7 @@ de números primos que queremos mostrar.
 '''
 import math
  
-numVeces = int(input('¿Cuántos primos quieres?: '))
+numVeces = int(input("¿Cuántos primos quieres?: \n"))
 p = 1   
 c = 3   
 r = '2' 

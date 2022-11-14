@@ -5,16 +5,20 @@ semana. Realice un algoritmo para determinar el sueldo semanal de N
 trabajadores y, además, calcule cuánto pagó la empresa por los N empleados.
 '''
 
-sueldo = 0
-sueldototal = 0
+horasSemana = 0
+trabajadores = 0
+sueldo_por_hora = 0
+sueldosemanal = 0
+horastotal = 0
 
 trabajadores = int(input("¿Cuántos trabajadores son?: \n"))
-horas = int(input("¿Cuántas horas trabajan al día?:\n"))
-sueldoHora = int(input("Sueldo por hora:\n"))
+sueldo_por_hora = int(input("¿Cuánto se cobra por hora?: \n"))
 
-for i in range (0,5):
-    sueldo += (sueldoHora*horas)
+sueldosemanal = sueldo_por_hora*trabajadores
 
-sueldototal = trabajadores*sueldo
-print(f"El sueldo semanal de un trabajador es {sueldo}€")
-print(f"La empresa ha pagado {sueldototal}€ por los {trabajadores} trabajadores")
+for num in range (1,trabajadores+1):
+    horasSemana = int(input(f"¿Cuántas horas trabaja a la semana el empleado {num}?:\n"))
+    horastotal += horasSemana
+
+print(f"El sueldo semanal de los {trabajadores} trabajadores es {sueldosemanal}€")
+print(f"El sueldo total que paga la empresa es {horastotal*sueldo_por_hora}")
