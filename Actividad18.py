@@ -4,14 +4,17 @@ Hacer un programa que muestre un cronometro, indicando las horas, minutos y
 segundos.
 '''
 
-import os
+import time
 
-cantidad_horas=0
-cantidad_minutos=0
-cantidad_segundos=0
+horas = 0
+minutos = 0
+segundos = 0
 
-for cantidad_horas in range(24):
-    os.system('cls')
-    for cantidad_minutos in range(60):
-        for cantidad_segundos in range(60):
-            print(f"{cantidad_horas}h : {cantidad_minutos}' : {cantidad_segundos}''")
+
+for h in range(24):
+    for m in range(60):
+        for s in range(60):
+            print(f"{h}:{m}:{s}")
+            for i in range(7):
+                print()
+            time.sleep(1)
