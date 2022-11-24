@@ -9,19 +9,6 @@ def descargaCancion():
     cancion = youtube.streams.get_audio_only()
     cancion.download()
 
-'''
-def descargarLista(url:str):
-    playlist = Playlist(url)
-    for cancion in playlist.videos:
-        print (f"Descargando canción: {cancion.title}")
-        #descagarCancion(cancion)         
-        cancion.streams.get_audio_only().download("canciones/")
-        print ("*************\n")
-'''
-
-#Programa principal
-
-
 descargaCancion(url)
 
 
